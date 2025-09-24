@@ -1,0 +1,111 @@
+{
+  "projects": [
+    {
+      "id": "ecommerce-platform",
+      "title": "E-Commerce Platform",
+      "thumbnail": "assets/images/ecommerce-thumb.jpg",
+      "skills": [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Express",
+        "Stripe API",
+        "JWT Authentication"
+      ],
+      "features": [
+        "User authentication and authorization",
+        "Product catalog with search and filtering",
+        "Shopping cart and checkout process",
+        "Payment integration with Stripe",
+        "Admin dashboard for inventory management",
+        "Order tracking and history"
+      ],
+      "screenshots": [
+        "assets/images/ecommerce-home.jpg",
+        "assets/images/ecommerce-products.jpg",
+        "assets/images/ecommerce-cart.jpg",
+        "assets/images/ecommerce-checkout.jpg"
+      ],
+      "video": "assets/videos/ecommerce-demo.mp4"
+    },
+    {
+      "id": "task-manager",
+      "title": "Task Management App",
+      "thumbnail": "assets/images/taskmanager-thumb.jpg",
+      "skills": [
+        "Vue.js",
+        "Firebase",
+        "CSS3",
+        "JavaScript ES6+",
+        "PWA"
+      ],
+      "features": [
+        "Create, edit, and delete tasks",
+        "Task categorization and priority levels",
+        "Due date tracking and reminders",
+        "Team collaboration features",
+        "Real-time synchronization",
+        "Offline support with PWA"
+      ],
+      "screenshots": [
+        "assets/images/taskmanager-dashboard.jpg",
+        "assets/images/taskmanager-create.jpg",
+        "assets/images/taskmanager-collaborate.jpg"
+      ],
+      "video": "assets/videos/taskmanager-demo.mp4"
+    },
+    {
+      "id": "weather-app",
+      "title": "Weather Dashboard",
+      "thumbnail": "assets/images/weather-thumb.jpg",
+      "skills": [
+        "JavaScript",
+        "HTML5",
+        "CSS3",
+        "OpenWeatherMap API",
+        "Chart.js"
+      ],
+      "features": [
+        "Current weather conditions",
+        "5-day weather forecast",
+        "Interactive weather maps",
+        "Location-based weather",
+        "Weather alerts and notifications",
+        "Historical weather data visualization"
+      ],
+      "screenshots": [
+        "assets/images/weather-current.jpg",
+        "assets/images/weather-forecast.jpg",
+        "assets/images/weather-maps.jpg"
+      ],
+      "video": "assets/videos/weather-demo.mp4"
+    },
+    {
+      "id": "blog-cms",
+      "title": "Blog CMS",
+      "thumbnail": "assets/images/blog-thumb.jpg",
+      "skills": [
+        "Next.js",
+        "TypeScript",
+        "Prisma",
+        "PostgreSQL",
+        "Tailwind CSS",
+        "Vercel"
+      ],
+      "features": [
+        "Rich text editor with markdown support",
+        "Image upload and optimization",
+        "SEO optimization",
+        "Comment system",
+        "User roles and permissions",
+        "Analytics dashboard"
+      ],
+      "screenshots": [
+        "assets/images/blog-editor.jpg",
+        "assets/images/blog-posts.jpg",
+        "assets/images/blog-analytics.jpg"
+      ],
+      "video": "assets/videos/blog-demo.mp4"
+    }
+  ]
+}
