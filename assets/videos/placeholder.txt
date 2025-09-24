@@ -3,8 +3,8 @@
 This folder should contain:
 
 ## Project Demo Videos
-- ecommerce-demo.mp4
-- taskmanager-demo.mp4
+- demo_ai_storybooks.mp4
+- demo_jigsaws.mp4
 - weather-demo.mp4
 - blog-demo.mp4
 
@@ -21,3 +21,6 @@ This folder should contain:
 - Add captions or text overlays for clarity
 - Keep audio clear and professional
 - Consider adding background music (optional)
+
+
+

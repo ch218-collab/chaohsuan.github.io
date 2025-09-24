@@ -33,3 +33,6 @@ To add a new project:
 2. Add project video to the `videos/` folder
 3. Update the `projects.json` file with the new project data
 4. The website will automatically load the new project
+
+
+

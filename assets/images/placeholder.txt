@@ -28,3 +28,6 @@ This folder should contain:
 - Screenshots: 800x600px recommended
 - Format: JPG or PNG
 - Optimize for web (compress for faster loading)
+
+
+

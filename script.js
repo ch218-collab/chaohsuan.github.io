@@ -6,6 +6,7 @@ let currentProject = null;
 const projectsGrid = document.getElementById('projectsGrid');
 const modal = document.getElementById('projectModal');
 const modalTitle = document.getElementById('modalTitle');
+const modalDescription = document.getElementById('modalDescription');
 const modalSkills = document.getElementById('modalSkills');
 const modalFeatures = document.getElementById('modalFeatures');
 const modalScreenshots = document.getElementById('modalScreenshots');
@@ -16,6 +17,7 @@ const closeBtn = document.querySelector('.close');
 document.addEventListener('DOMContentLoaded', function() {
     loadProjects();
     setupEventListeners();
+    setupTabNavigation();
 });
 
 // Load projects from JSON file
@@ -60,7 +62,7 @@ function renderProjects() {
         return;
     }
 
-    projectsGrid.innerHTML = projectsData.map(project => `
+    projectsGrid.innerHTML = projectsData.map((project, index) => `
         <div class="project-card" data-project-id="${project.id}" tabindex="0">
             <div class="project-thumbnail">
                 <img src="${project.thumbnail}" alt="${project.title}" 
@@ -68,10 +70,11 @@ function renderProjects() {
                 <div style="display: none; width: 100%; height: 100%; align-items: center; justify-content: center; background: linear-gradient(45deg, #f0f0f0, #e0e0e0); color: #666;">
                     ${project.title}
                 </div>
+                ${index === 0 ? '<div class="current-badge">⭐ Currently Working</div>' : ''}
             </div>
             <div class="project-info">
                 <h3 class="project-title">${project.title}</h3>
-                <p class="project-description">Click to view details, screenshots, and demo video</p>
+                <p class="project-description">${project.cardDescription || 'Click to view details, screenshots, and demo video'}</p>
             </div>
         </div>
     `).join('');
@@ -106,6 +109,9 @@ function openModal(projectId) {
     
     // Populate modal content
     modalTitle.textContent = project.title;
+    
+    // Populate description
+    modalDescription.innerHTML = project.description || '<p>No description available for this project.</p>';
     
     // Populate skills
     modalSkills.innerHTML = project.skills.map(skill => `<li>${skill}</li>`).join('');
@@ -248,6 +254,63 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(card);
     });
 });
+
+// Tab Navigation
+function setupTabNavigation() {
+    const navLinks = document.querySelectorAll('.main-nav .nav-link');
+    const contentSections = document.querySelectorAll('.content-section');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetSection = this.getAttribute('data-section');
+            const targetElement = document.getElementById(targetSection);
+            
+            // Don't do anything if clicking the same section
+            if (targetElement && targetElement.classList.contains('fade-in')) {
+                return;
+            }
+            
+            // Remove active class from all nav links
+            navLinks.forEach(navLink => navLink.classList.remove('active'));
+            
+            // Add active class to clicked nav link
+            this.classList.add('active');
+            
+            // Find currently active section
+            const currentActiveSection = document.querySelector('.content-section.fade-in');
+            
+            if (currentActiveSection) {
+                // Fade out current section
+                currentActiveSection.classList.remove('fade-in');
+                currentActiveSection.classList.add('fade-out');
+                
+                // After fade out completes, fade in new section
+                setTimeout(() => {
+                    // Hide all content sections
+                    contentSections.forEach(section => {
+                        section.classList.remove('fade-in', 'fade-out');
+                    });
+                    
+                    // Show target content section
+                    if (targetElement) {
+                        targetElement.classList.add('fade-in');
+                    }
+                }, 300); // Wait for fade out to complete
+            } else {
+                // No current section, just show target
+                contentSections.forEach(section => {
+                    section.classList.remove('fade-in', 'fade-out');
+                });
+                
+                if (targetElement) {
+                    targetElement.classList.add('fade-in');
+                }
+            }
+        });
+    });
+}
 
 // Export functions for global access
 window.openModal = openModal;
