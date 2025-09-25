@@ -12,3 +12,4 @@ Please add your profile photo as:
 - Good lighting and clear background
 - Square aspect ratio works best
 - File size: Keep under 2MB for web optimization
+
